@@ -2,6 +2,7 @@ package com.tenniscourts.tenniscourts;
 
 import com.tenniscourts.exceptions.EntityNotFoundException;
 import com.tenniscourts.schedules.ScheduleService;
+import com.tenniscourts.tenniscourts.model.TennisCourtDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class TennisCourtService {
     }
 
     public TennisCourtDTO findTennisCourtWithSchedulesById(Long tennisCourtId) {
-        TennisCourtDTO tennisCourtDTO = findTennisCourtById(tennisCourtId);
+        var tennisCourtDTO = findTennisCourtById(tennisCourtId);
         tennisCourtDTO.setTennisCourtSchedules(scheduleService.findSchedulesByTennisCourtId(tennisCourtId));
         return tennisCourtDTO;
     }
